@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// 库
+import React, { memo } from "react";
+import { renderRoutes } from "react-router-config";
+import { BrowserRouter } from "react-router-dom";
 
-function App() {
+// 路由
+import routes from "@/router";
+
+// 组件
+import Header from "@/components/app-header";
+import Footer from "@/components/app-footer";
+
+export default memo(function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      {renderRoutes(routes)}
+      <Footer />
+    </BrowserRouter>
   );
-}
-
-export default App;
+}) 
