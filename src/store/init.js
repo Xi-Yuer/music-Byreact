@@ -1,6 +1,10 @@
 const init = {
     banners:[],
     recommends:[],
-    newalbum:[]
+    newalbum:[],
+    HotSongList:[],
+    OriginalCreationList:[],
+    SoaringList:[],
+    HotArtists:[]
 }
 export default init

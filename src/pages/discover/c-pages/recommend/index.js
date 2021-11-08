@@ -8,32 +8,48 @@ import {
 
 import store from "@/store";
 
-import { getBanners,getRecommends, getNewAlbum } from "./getData/index";
-
+import {
+  getBanners,
+  getRecommends,
+  getNewAlbum,
+  HotSongList,
+  OriginalCreationList,
+  SoaringList,
+  getHotAnchor
+} from "./getData/index";
 
 import TopBanner from "./c-components/top-banner";
-import HotRecommend from './c-components/hot-recommend'
+import HotRecommend from "./c-components/hot-recommend";
 import Album from "./c-components/new-album";
-import Rangking from './c-components/ranking'
+import Rangking from "./c-components/ranking";
+import UserLoging from './c-components/user-login'
+import SettleSinger from './c-components/settle-singer'
+import HotAnchor from './c-components/hot-anchor'
 
 export default memo(function Recommend() {
   useEffect(() => {
     store.dispatch(getBanners);
     store.dispatch(getRecommends);
     store.dispatch(getNewAlbum);
-    return ()=>{
-    }
+    store.dispatch(HotSongList);
+    store.dispatch(OriginalCreationList);
+    store.dispatch(SoaringList);
+    store.dispatch(getHotAnchor);
   }, []);
   return (
     <RecommendWraper>
       <TopBanner />
-      <Content className='wrap-v2'>
+      <Content className="wrap-v2">
         <RecommendLeft>
-          <HotRecommend/>
-          <Album/>
-          <Rangking/>
+          <HotRecommend />
+          <Album />
+          <Rangking />
         </RecommendLeft>
-        <RecommendRight></RecommendRight>
+        <RecommendRight>
+          <UserLoging/>
+          <SettleSinger/>
+          <HotAnchor/>
+        </RecommendRight>
       </Content>
     </RecommendWraper>
   );
