@@ -5,6 +5,9 @@ const init = {
     HotSongList:[],
     OriginalCreationList:[],
     SoaringList:[],
-    HotArtists:[]
+    HotArtists:[],
+    CurrentMusicInfo:{},
+    playList:[],
+    currentSongIndex:0
 }
 export default init

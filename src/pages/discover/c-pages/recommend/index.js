@@ -1,4 +1,5 @@
 import React, { memo, useEffect } from "react";
+import { useDispatch } from 'react-redux'
 import {
   RecommendWraper,
   Content,
@@ -6,10 +7,8 @@ import {
   RecommendRight,
 } from "./style";
 
-import store from "@/store";
-
 import {
-  getBanners,
+  getBanner,
   getRecommends,
   getNewAlbum,
   HotSongList,
@@ -27,18 +26,19 @@ import SettleSinger from './c-components/settle-singer'
 import HotAnchor from './c-components/hot-anchor'
 
 export default memo(function Recommend() {
+  const dispatch = useDispatch()
   useEffect(() => {
-    store.dispatch(getBanners);
-    store.dispatch(getRecommends);
-    store.dispatch(getNewAlbum);
-    store.dispatch(HotSongList);
-    store.dispatch(OriginalCreationList);
-    store.dispatch(SoaringList);
-    store.dispatch(getHotAnchor);
-  }, []);
+    dispatch(getBanner())
+    dispatch(getRecommends())
+    dispatch(getNewAlbum())
+    dispatch(HotSongList())
+    dispatch(OriginalCreationList())
+    dispatch(SoaringList())
+    dispatch(getHotAnchor())
+  },[dispatch]);
   return (
     <RecommendWraper>
-      <TopBanner />
+      <TopBanner/>
       <Content className="wrap-v2">
         <RecommendLeft>
           <HotRecommend />
@@ -53,4 +53,4 @@ export default memo(function Recommend() {
       </Content>
     </RecommendWraper>
   );
-});
+})

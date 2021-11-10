@@ -1,16 +1,14 @@
-import React, { memo, useState } from "react";
+import React, { memo } from "react";
+import { useSelector } from 'react-redux'
 import ThemeHeaderRCM from "@/components/theme-header-rcm";
 import TopRanking from "@/components/top-ranking";
 
-import store from "@/store";
 
 import { RankingWrapper } from "./style";
 export default memo(function Ranking() {
-  const [HotSongList] = useState(store.getState().HotSongList);
-  const [OriginalCreationList] = useState(
-    store.getState().OriginalCreationList
-  );
-  const [SoaringList] = useState(store.getState().SoaringList);
+  const HotSongList = useSelector(state => state.HotSongList)
+  const OriginalCreationList = useSelector(state => state.OriginalCreationList)
+  const SoaringList = useSelector(state => state.SoaringList)
   return (
     <RankingWrapper>
       <ThemeHeaderRCM title="榜单" />

@@ -1,14 +1,14 @@
 import React, { memo, useState, useRef, useCallback } from "react";
 
+import { useSelector } from 'react-redux'
+
 import { Carousel } from "antd";
 
 import { BannerWrapper, BannerLeft, BannerRight, BannerControl } from "./style";
 
-import store from "@/store";
-
 export default memo(function TopBanner() {
   
-  const [banners] = useState(store.getState().banners)
+  const banners = useSelector(state => state.banners)
   const BannerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0)
 

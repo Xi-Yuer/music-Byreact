@@ -5,7 +5,10 @@ import {
   HOTSONGLIST,
   ORIGINALCREATIONLIST,
   SOARINGLIST,
-  HORARINGLIST
+  HORARINGLIST,
+  MUSICINFO,
+  CHANGEPLAYLIST,
+  CURRENTSONGINDEX
 } from "./config";
 import init from "./init";
 function reducer(state = init, action) {
@@ -25,6 +28,12 @@ function reducer(state = init, action) {
       return { ...state, SoaringList: data };
     case HORARINGLIST:
       return { ...state, HotArtists: data };
+    case MUSICINFO:
+      return { ...state, CurrentMusicInfo: data };
+    case CHANGEPLAYLIST:
+      return { ...state, playList: data };
+    case CURRENTSONGINDEX:
+      return { ...state, currentSongIndex: data };
     default:
       return { ...state };
   }

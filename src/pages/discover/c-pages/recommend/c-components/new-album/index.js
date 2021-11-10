@@ -1,5 +1,5 @@
-import React, { memo, useState, useRef } from "react";
-
+import React, { memo, useRef } from "react";
+import { useSelector } from 'react-redux'
 import { Carousel } from "antd";
 
 import ThemeHeaderRCM from "@/components/theme-header-rcm";
@@ -7,11 +7,9 @@ import AlbumCover from "@/components/album-cover";
 
 import { AlbumWrapper } from "./style";
 
-import store from "@/store";
-
 export default memo(function NewAlbum() {
   const carouselRef = useRef();
-  const [newalbum] = useState(store.getState().newalbum);
+  const newalbum = useSelector(state => state.newalbum)
   return (
     <AlbumWrapper>
       <ThemeHeaderRCM title="新碟上架" />
