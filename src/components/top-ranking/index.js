@@ -1,6 +1,9 @@
 import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { CHANGEPLAYLIST } from "@/store/config";
+import createAction from "@/store/create-action";
+
 import { getSizeImage } from '@/utils/format-utils';
 import { SendMusicRquest } from "@/services/music-data";
 
@@ -17,6 +20,9 @@ export default memo(function TopRanking(props) {
   // other handle
   const playMusic = (item) => {
     dispatch(SendMusicRquest(item.id));
+    const newPlayList = [...tracks]
+    newPlayList.shift()
+    dispatch(createAction(CHANGEPLAYLIST,newPlayList))
   }
 
   return (

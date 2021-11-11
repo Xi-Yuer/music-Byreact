@@ -17,3 +17,9 @@ export const MUSICINFO ='MusicInfo'
 export const CHANGEPLAYLIST = 'changePlayList'
 
 export const CURRENTSONGINDEX = 'currentSongIndex'
+
+export const CHANGESEQUENCE = 'sequence'
+
+export const CHANGELYRIC = 'lyric'
+
+export const CHANGECURRENTLYRICINDEX = 'currentLyricIndex'

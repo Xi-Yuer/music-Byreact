@@ -8,7 +8,10 @@ import {
   HORARINGLIST,
   MUSICINFO,
   CHANGEPLAYLIST,
-  CURRENTSONGINDEX
+  CURRENTSONGINDEX,
+  CHANGESEQUENCE,
+  CHANGELYRIC,
+  CHANGECURRENTLYRICINDEX
 } from "./config";
 import init from "./init";
 function reducer(state = init, action) {
@@ -34,6 +37,12 @@ function reducer(state = init, action) {
       return { ...state, playList: data };
     case CURRENTSONGINDEX:
       return { ...state, currentSongIndex: data };
+    case CHANGESEQUENCE:
+      return { ...state, sequence: data };
+    case CHANGELYRIC:
+      return { ...state, lyric: data };
+    case CHANGECURRENTLYRICINDEX:
+      return { ...state, currentLyricIndex: data };
     default:
       return { ...state };
   }
