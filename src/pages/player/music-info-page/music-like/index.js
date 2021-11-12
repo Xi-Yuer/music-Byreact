@@ -14,7 +14,7 @@ export default memo(function LikeMusic() {
             {
                 simiSongs.songs.map((item,index)=>{
                     return (
-                        <div className='wrap'>
+                        <div className='wrap' key={item.id}>
                             <div className='musicInfo'>
                                 <div className='name text-nowrap'>{item.name}</div>
                                 <div className='artists text-nowrap'>{item.artists[0].name}</div>

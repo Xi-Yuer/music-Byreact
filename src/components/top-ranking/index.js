@@ -35,7 +35,7 @@ export default memo(function TopRanking(props) {
         <div className="info">
           <a href="/">{info.name}</a>
           <div>
-            <button className="btn play sprite_02"></button>
+            <button className="btn play sprite_02"onClick={e => playMusic(tracks[0])}></button>
             <button className="btn favor sprite_02"></button>
           </div>
         </div>

@@ -27,3 +27,5 @@ export const CHANGECURRENTLYRICINDEX = 'currentLyricIndex'
 export const CHANGECURRENTMUSICCOMMON = 'currentMusicCommon'
 
 export const CHANGECURRESIMISONGS = 'simiSongs'
+
+export const CHANGECURRENTALBUMID = 'currentAlbumId'

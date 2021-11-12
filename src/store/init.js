@@ -13,6 +13,7 @@ const init = {
     lyric:[],
     currentLyricIndex:0 ,//当前歌词index
     currentMusicCommon:[], // 当前歌曲评论
-    simiSongs:[] // 相似歌曲
+    simiSongs:[], // 相似歌曲
+    currentAlbumId:0, //当前歌单id
 }
 export default init

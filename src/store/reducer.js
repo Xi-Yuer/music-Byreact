@@ -13,7 +13,8 @@ import {
   CHANGELYRIC,
   CHANGECURRENTLYRICINDEX,
   CHANGECURRENTMUSICCOMMON,
-  CHANGECURRESIMISONGS
+  CHANGECURRESIMISONGS,
+  CHANGECURRENTALBUMID
 } from "./config";
 import init from "./init";
 function reducer(state = init, action) {
@@ -49,6 +50,8 @@ function reducer(state = init, action) {
       return { ...state, currentMusicCommon: data };
     case CHANGECURRESIMISONGS:
       return { ...state, simiSongs: data };
+    case CHANGECURRENTALBUMID:
+      return { ...state, currentAlbumId: data };
     default:
       return { ...state };
   }
