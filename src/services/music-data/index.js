@@ -1,6 +1,6 @@
 import request from "../requset";
 
-import { MUSICINFO,CURRENTSONGINDEX,CHANGELYRIC } from "@/store/config";
+import { MUSICINFO,CURRENTSONGINDEX,CHANGELYRIC,CHANGECURRENTMUSICCOMMON,CHANGECURRESIMISONGS } from "@/store/config";
 import createAction from "@/store/create-action";
 
 import { parseLyric } from '@/utils/parse-lyric'
@@ -76,5 +76,30 @@ export const getLyricAction = id => {
       // 放到redux中
       dispatch(createAction(CHANGELYRIC,lyric))
     })
+    getMusicCommen(id).then(res => {
+      // 放到redux中
+      dispatch(createAction(CHANGECURRENTMUSICCOMMON,res))
+    })
+    getSimiMusic(id).then(res=>{
+      dispatch(createAction(CHANGECURRESIMISONGS,res))
+    })
   }
+}
+// 歌曲评论
+function getMusicCommen(id){
+   return  request({
+      url:'/comment/music',
+      params:{
+        id
+      }
+    })
+}
+// 相似歌曲
+function getSimiMusic(id) {
+  return request({
+    url:'/simi/song',
+    params:{
+      id
+    }
+  })
 }

@@ -23,3 +23,7 @@ export const CHANGESEQUENCE = 'sequence'
 export const CHANGELYRIC = 'lyric'
 
 export const CHANGECURRENTLYRICINDEX = 'currentLyricIndex'
+
+export const CHANGECURRENTMUSICCOMMON = 'currentMusicCommon'
+
+export const CHANGECURRESIMISONGS = 'simiSongs'

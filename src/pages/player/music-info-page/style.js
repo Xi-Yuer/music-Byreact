@@ -11,6 +11,10 @@ export const PlayerWrapper = styled.div`
 
 export const PlayerLeft = styled.div`
   width: 710px;
+  padding: 20px 40px 40px 30px;
+  .music{
+    display:flex;
+  }
 `;
 
 export const PlayerRight = styled.div`
