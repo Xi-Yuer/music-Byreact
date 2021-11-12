@@ -9,6 +9,7 @@ export const StyledWrapper = styled.div`
     width:156;
     .name{
         color: #333;
+        width:150px;
     }
     .artists{
         color: #999;

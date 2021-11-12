@@ -13,9 +13,9 @@ export default memo(function HYHotRadio() {
         {hotRadios.map((item, index) => {
           return (
             <div className="item" key={item.picUrl}>
-              <a href="/abc" className="image">
+              <span className="image">
                 <img src={item.picUrl} alt="" />
-              </a>
+              </span>
               <div className="info">
                 <div className="name">{item.name}</div>
                 <div className="position text-nowrap">{item.position}</div>

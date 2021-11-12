@@ -1,21 +1,46 @@
 import React, { memo, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+
 import { PlayerWrapper, PlayerLeft, PlayerRight } from "./style";
-import { getAlbumInfo } from "./getData";
+import { getAlbumInfo, getSimiAlbums } from "./getData";
 import { getSizeImage, formatDate } from "@/utils/format-utils";
 import { SendMusicRquest } from "@/services/music-data";
+
+import createAction from '@/store/create-action'
+import { CHANGECURRENTALBUMID,CHANGEPLAYLIST } from '@/store/config'
+
 export default memo(function AlbumInfo() {
+
   const currentAlbumId = useSelector((state) => state.currentAlbumId);
   const [{ playlist, privileges = [] }, setAlbumInfo] = useState(2087916692);
-  const dispatch = useDispatch();
+  const [simiAlbum, setSimiAlbum] = useState([])
+  const dispatch = useDispatch()
+
+
   useEffect(() => {
     getAlbumInfo(currentAlbumId).then((res) => {
       setAlbumInfo(res);
-    });
-  }, [currentAlbumId]);
+    })
+  }, [currentAlbumId])
+
+  useEffect(() => {
+    if(playlist===undefined) return
+    const id = playlist.tracks[0].id
+    getSimiAlbums(id).then(res=>{
+      setSimiAlbum(res.playlists)
+    })
+  }, [playlist])
+
   const itemClick = (id) => {
     dispatch(SendMusicRquest(id));
-  };
+    dispatch(createAction(CHANGEPLAYLIST,playlist.tracks))
+  }
+
+  const jumpToAlbumInfo = (item) =>{
+    dispatch(createAction(CHANGECURRENTALBUMID,item.id))
+  }
+
   return (
     privileges.length === 0 || (
       <PlayerWrapper>
@@ -37,7 +62,7 @@ export default memo(function AlbumInfo() {
                   <span className="nickName">{playlist.creator.nickname}</span>
                   <span className="createTime">
                     {formatDate(playlist.updateTime, "yyyy-MM-dd")}&nbsp;创建
-                   </span>
+                  </span>
                 </div>
                 <div>
                   标签：
@@ -69,7 +94,7 @@ export default memo(function AlbumInfo() {
                 </div>
                 {playlist.tracks.map((item, index) => {
                   return (
-                    <div className="header musicList" key={item.dt}>
+                    <div className="header musicList" key={item.id}>
                       <span className="span1 text-nowrap">{index + 1}</span>
                       <span className="span2 text-nowrap">
                         <i
@@ -96,7 +121,44 @@ export default memo(function AlbumInfo() {
             </div>
           </PlayerLeft>
           <PlayerRight>
-            <h2>其他信息</h2>
+            <div className="leftItem">
+              <div className="header">
+                <b>喜欢这个歌单的人</b>
+              </div>
+              <div className="subscribersUserImg">
+                {playlist.subscribers.map((item) => {
+                  return (
+                    <img
+                      src={getSizeImage(item.avatarUrl, 40)}
+                      key={item.userId}
+                      alt=""
+                    />
+                  );
+                })}
+              </div>
+            </div>
+            <div>
+              <div className="header">
+                <b>相似歌单</b>
+              </div>
+              {
+                simiAlbum.length!==0 && simiAlbum.map((item,index)=>{
+                  return (
+                    <div key={item.coverImgId} className='simiAlbumContent' onClick={e=>{
+                      jumpToAlbumInfo(item)
+                    }}>
+                      <div>
+                        <img src={getSizeImage(item.coverImgUrl,50)} alt=""/>
+                      </div>
+                      <div className='simiAlbumRight'>
+                        <div className='simiAlbumName text-nowrap'>{item.name}</div>
+                        <div className='simiAlbumNickName text-nowrap'>by&nbsp;{item.creator.nickname}</div>
+                      </div>
+                    </div>
+                  )
+                })
+              }
+            </div>
           </PlayerRight>
         </div>
       </PlayerWrapper>

@@ -7,3 +7,11 @@ export function getAlbumInfo(id){
         }
     })
 }
+export function getSimiAlbums(id){
+    return request({
+        url:'/simi/playlist',
+        params:{
+            id
+        }
+    })
+}

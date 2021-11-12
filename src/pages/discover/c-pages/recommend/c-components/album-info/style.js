@@ -47,6 +47,7 @@ export const PlayerLeft = styled.div`
   }
   .albumSongs{
     .title{
+      margin-top:20px;
       border-bottom:2px solid red;
       display:flex;
       line-height:35px;
@@ -59,7 +60,7 @@ export const PlayerLeft = styled.div`
       display:flex;
       justify-content:space-between;
       color:#707070;
-      line-height:45px;
+      line-height:40px;
       i{
         cursor:pointer;
       }
@@ -88,4 +89,39 @@ export const PlayerLeft = styled.div`
 export const PlayerRight = styled.div`
   width: 270px;
   padding: 20px 40px 40px 30px;
+  .leftItem{
+    margin-bottom:20px;
+  }
+  .header{
+    border-bottom:1px solid #333;
+    padding:5px 0;
+  }
+  .subscribersUserImg{
+    display:flex;
+    width: 200px;
+    margin-top:10px;
+    flex-wrap: wrap;
+    img{
+      padding:5px 5px;
+    }
+  }
+  .simiAlbumContent{
+    cursor:pointer;
+    display:flex;
+    margin-top:20px;
+    .simiAlbumRight{
+      margin-left:15px;
+      .simiAlbumName{
+      font-size:14px;
+      width:150px;
+    }
+    .simiAlbumNickName{
+      font-size:12px;
+      width:130px;
+      margin-top:5px;
+      color:#666
+    }
+    }
+    
+  }
 `;

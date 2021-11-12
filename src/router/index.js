@@ -13,6 +13,7 @@ import Ranking from '@/pages/discover/c-pages/ranking'
 import Song from '@/pages/discover/c-pages/songs'
 import MusicInfoPage from '@/pages/player/music-info-page'
 import AlbumInfo from '@/pages/discover/c-pages/recommend/c-components/album-info'
+import NewAlbumInfoPage from '@/pages/discover/c-pages/recommend/c-components/new-album/new-album-info-page'
 const routes = [
     {
         path:'/',
@@ -63,6 +64,10 @@ const routes = [
             {
                 path:'/discover/albumInfo',
                 component:AlbumInfo
+            },
+            {
+                path:'/discover/newAlibumInfoPage',
+                component:NewAlbumInfoPage
             }
         ]
     },

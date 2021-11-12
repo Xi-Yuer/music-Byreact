@@ -11,7 +11,7 @@ const HYThemeHeaderSmall = memo(function (props) {
   return (
     <HeaderWrapper>
       <h3>{title}</h3>
-      <a href="/abc">{more}</a>
+      <span>{more}</span>
     </HeaderWrapper>
   )
 })

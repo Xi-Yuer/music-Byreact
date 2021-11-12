@@ -11,9 +11,9 @@ export default memo(function AlbumCover(props) {
     <AlbumWrapper size={size} width={width} bgp={bgp}>
       <div className="album-image">
         <img src={getSizeImage(info.picUrl, 150)} alt="" />
-        <a href="/abc" className="cover sprite_covor">
+        <span className="cover sprite_covor">
           {info.name}
-        </a>
+        </span>
       </div>
       <div className="album-info">
         <div className="name">{info.name}</div>

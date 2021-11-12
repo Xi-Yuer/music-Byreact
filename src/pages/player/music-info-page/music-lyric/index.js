@@ -8,7 +8,6 @@ export default memo(function MusicPlayBar() {
     const [lyricShowLine, setLyricShowLine] = useState(10)
     const [isShowMore, setIsShowMore] = useState(false)
     const More = () => {
-        console.log(lyricArr.length);
         setIsShowMore(!isShowMore)
         if(!isShowMore){
             setLyricShowLine(lyricArr.length)
