@@ -1,20 +1,17 @@
 import React, { memo } from "react";
-import { useSelector } from "react-redux";
 
 import { getSizeImage, formatDate } from "@/utils/format-utils";
 
 import { MusicCommen } from "./style";
 
-export default memo(function MusicPlayBar() {
-  const { hotComments, comments } = useSelector(
-    (state) => state.currentMusicCommon
-  );
+export default memo(function MusicPlayBar(props) {
+  const { hotComments } = props;
   return (
-    <MusicCommen>
+    hotComments.length!==0 && <MusicCommen>
       <div className="line">
         <b>精彩评论</b>
       </div>
-      {[...hotComments, ...comments].map((item) => {
+      {hotComments.map((item) => {
         return (
           <div key={item.commentId} className="content1">
             <div className="userImg">

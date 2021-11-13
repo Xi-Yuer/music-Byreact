@@ -72,10 +72,17 @@ export const PlayerLeft = styled.div`
         padding-left:30px;
       }
       .span2{
-        flex:2;
+        flex:3;
+      }
+      .span3{
+        flex:1;
+        margin-left:10px;
       }
       .span4{
         flex:2;
+      }
+      .span5{
+        flex:3;
       }
       &.musicList{
         :nth-child(2n){

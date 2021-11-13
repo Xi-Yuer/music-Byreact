@@ -7,3 +7,11 @@ export function getNewAlbumInfo(id){
         }
     })
 }
+export function getNewAlbumComments(id){
+    return requset({
+        url:'/comment/album',
+        params:{
+          id
+        }
+    })
+}
