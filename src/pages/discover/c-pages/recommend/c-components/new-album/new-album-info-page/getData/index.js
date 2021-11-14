@@ -15,3 +15,9 @@ export function getNewAlbumComments(id){
         }
     })
 }
+
+export function getAllAlbum() {
+    return requset({
+        url:'/album/newest'
+    })
+}

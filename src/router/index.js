@@ -14,6 +14,7 @@ import Song from '@/pages/discover/c-pages/songs'
 import MusicInfoPage from '@/pages/player/music-info-page'
 import AlbumInfo from '@/pages/discover/c-pages/recommend/c-components/album-info'
 import NewAlbumInfoPage from '@/pages/discover/c-pages/recommend/c-components/new-album/new-album-info-page'
+import SettleSingerInfoPage from '@/pages/discover/c-pages/recommend/c-components/settle-singer/settle-singer-info-page'
 const routes = [
     {
         path:'/',
@@ -68,6 +69,10 @@ const routes = [
             {
                 path:'/discover/newAlibumInfoPage',
                 component:NewAlbumInfoPage
+            },
+            {
+                path:'/discover/settleSingerInfoPage',
+                component:SettleSingerInfoPage
             }
         ]
     },

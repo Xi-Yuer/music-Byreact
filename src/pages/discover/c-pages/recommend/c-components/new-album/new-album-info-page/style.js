@@ -41,7 +41,7 @@ export const RecommendLeft = styled.div`
         white-space: pre-wrap;
         margin-left: 25px;
         line-height: 24px;
-        height: ${(props) => (props.describtionLine ? "70px" : "")};
+        height: ${(props) => (props.describtionLine ? "50px" : "")};
       }
       .more {
         color: #0c73c2;

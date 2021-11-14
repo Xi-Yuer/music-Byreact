@@ -4,11 +4,12 @@ import { useDispatch } from 'react-redux'
 import { CHANGEPLAYLIST } from '@/store/config'
 import createAction from '@/store/create-action'
 
-import { getNewAlbumInfo,getNewAlbumComments } from "./getData";
+import { getNewAlbumInfo,getNewAlbumComments,getAllAlbum } from "./getData";
 import { getSizeImage, formatDate } from "@/utils/format-utils";
 import { SendMusicRquest } from '@/services/music-data'
 
 import MusicCommen from './comments'
+import OtherAlbum from './other-album'
 
 
 import {
@@ -21,13 +22,16 @@ import {
 export default memo(function NewAlbumInfoPage(props) {
 
   const dispatch = useDispatch()
-  const id = props.location.state.id;
+  // const id = props.location.state.id;
 
   const [{ album, songs }, setAlbumInfo] = useState({});
   const [describtionLine, setDescribtionLine] = useState(true);
   const [comments, setComments] = useState([])
+  const [moreAlbum, setMoreAlbum] = useState([])
+  const [id, setId] = useState(props.location.state.id)
 
   const moreBtnClick = () => {setDescribtionLine(!describtionLine)}
+
   const itemClick = (id) => {dispatch(SendMusicRquest(id));dispatch(createAction(CHANGEPLAYLIST,songs))}
 
   useEffect(() => {
@@ -36,9 +40,14 @@ export default memo(function NewAlbumInfoPage(props) {
       getNewAlbumComments(id).then(res=>{
         setComments([...res.comments,...res.hotComments])
       })
-    });
+    })
+    getAllAlbum().then((res)=>{
+      setMoreAlbum(res.albums)
+    })
   }, [id]);
-  
+  const rightAlbumItemClick = (id)=>{
+    setId(id)
+  }
   return (
     album !== undefined &&
     songs !== undefined && (
@@ -126,7 +135,7 @@ export default memo(function NewAlbumInfoPage(props) {
             </div>
           </RecommendLeft>
           <RecommendRight>
-            <h2>其他</h2>
+            <OtherAlbum moreAlbum={moreAlbum} rightAlbumItemClick={rightAlbumItemClick}/>
           </RecommendRight>
         </Content>
       </RecommendWraper>
