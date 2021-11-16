@@ -5,6 +5,16 @@ module.exports = {
         alias: {
             "@":resolve("src"),
             "components":resolve("src/components")
-        }
+        },
+        "proxy":{
+            "/api":{
+               "target":"http://123.207.32.32:9001",
+               "changeOrigin": true,
+               "pathRewrite": {
+                "^/api": ""
+            }
+             }
+         }
     }
+    
 }

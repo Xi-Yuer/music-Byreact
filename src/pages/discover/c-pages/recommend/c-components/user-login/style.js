@@ -12,7 +12,7 @@ export const UserLoginWrapper = styled.div`
     line-height: 25px;
   }
 
-  a {
+  span {
     margin-top: 10px;
     display: inline-block;
     width: 100px;

@@ -20,3 +20,13 @@ export function getSingerSongs(id) {
           }
     })
 }
+
+// 相似歌手
+export function getSimiSinger(id) {
+    return request({
+        url:'/simi/artist',
+        params:{
+            id
+          }
+    })
+}
