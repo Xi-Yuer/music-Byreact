@@ -7,3 +7,10 @@ export function getTopPlayListData(cat){
         }
     })
 }
+
+// 分类信息
+export function getCategoryInfo() {
+    return request({
+        url:'/playlist/catlist'
+    })
+}

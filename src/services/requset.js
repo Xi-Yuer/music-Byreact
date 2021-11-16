@@ -1,4 +1,7 @@
 import originAxios from "axios";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Spin } from 'antd';
 // import Cookies from 'js-cookie'  
 export default function request(option) {
   return new Promise((resolve, reject) => {
@@ -22,6 +25,10 @@ export default function request(option) {
         // const token = Cookies.get('pmcucookie') || window.localStorage.getItem('token')
         // token && (config.headers.token = token)
         // config.metadata = {startTime:new Date()}
+        const dom = document.createElement('div')
+        dom.setAttribute('id', 'loading')
+        document.body.appendChild(dom)
+        ReactDOM.render(<Spin tip="加载中" size="large" />, dom)
         return config;
       },
       (err) => {
@@ -32,10 +39,12 @@ export default function request(option) {
 
     instance.interceptors.response.use(
       (response) => {
+        document.body.removeChild(document.getElementById('loading'))
         // console.log('来到了response拦截success中');
         return response.data;
       },
       (err) => {
+        document.body.removeChild(document.getElementById('loading'))
         console.log("来到了response拦截failure中");
         console.log(err);
         if (err && err.response) {
