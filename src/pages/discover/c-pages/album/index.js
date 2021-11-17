@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
-
+import Lazy from '@/components/lazy'
 export default memo(function Album() {
     return (
         <div>
-            <h2>Album</h2>
+            <Lazy/>
         </div>
     )
 })

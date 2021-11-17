@@ -27,7 +27,7 @@ export default memo(function Player() {
   // 是否在播放
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const { currentSongInfo, sequence, playList,lyricList,currentLyricIndex} = useSelector(state => ({
+  const { currentSongInfo={}, sequence, playList,lyricList,currentLyricIndex} = useSelector(state => ({
     currentSongInfo:state.CurrentMusicInfo,
     sequence:state.sequence,
     playList:state.playList.length,
@@ -39,7 +39,7 @@ export default memo(function Player() {
   // 刚开始currentSongInfo为空(当redux中的歌曲信息变化时，该代码会自动执行)
   useEffect(() => { currentSongInfo.id && (audioRef.current.src = getPlayUrl(currentSongInfo.id))}, [currentSongInfo]);
   
-  const duration = currentSongInfo.dt || 0;
+  const duration = currentSongInfo.dt || currentSongInfo.duration ||0;
 
   // 播放/暂停音乐
   const palyMusic = useCallback(() => {isPlaying ? audioRef.current.pause() : audioRef.current.play();setIsPlaying(!isPlaying)}, [isPlaying]);
@@ -95,7 +95,7 @@ export default memo(function Player() {
   // 上一曲/下一曲
   const changeMusic = tag => {dispatch(changeCurrentSong(tag))}
   return (
-    JSON.stringify(currentSongInfo) === "{}" || (
+    JSON.stringify(currentSongInfo) !== "{}" && (
       <PlaybarWrapper className="sprite_player ">
         <div className="content wrap-v2">
           <Control isPlaying={isPlaying}>
@@ -109,7 +109,7 @@ export default memo(function Player() {
           <PlayInfo>
             <div className="image">
               <NavLink to='/discover/musicInfoPage'>
-                <img src={getSizeImage(currentSongInfo.al.picUrl, 35)} alt="" />
+                <img src={getSizeImage(currentSongInfo.al?currentSongInfo.al.picUrl:currentSongInfo.album.artist.img1v1Url, 35)} alt="" />
               </NavLink>
             </div>
 
@@ -117,7 +117,7 @@ export default memo(function Player() {
               <div className="song">
                 <span className="song-name">{currentSongInfo.name}</span>
                 <span className="singer-name">
-                  {currentSongInfo.ar[0].name}
+                  {currentSongInfo.ar?currentSongInfo.ar[0].name:currentSongInfo.artists[0].name}
                 </span>
               </div>
               <div className="progress">

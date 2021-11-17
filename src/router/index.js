@@ -4,6 +4,7 @@ import React from 'react'
 import Mine from '../pages/mine'
 import Fridend from '../pages/fridend'
 import { Redirect } from 'react-router-dom';
+import Search from '@/pages/search'
 // 二级路由
 import Recommend from '@/pages/discover/c-pages/recommend';
 import Album from '@/pages/discover/c-pages/album'
@@ -15,6 +16,7 @@ import MusicInfoPage from '@/pages/player/music-info-page'
 import AlbumInfo from '@/pages/discover/c-pages/recommend/c-components/album-info'
 import NewAlbumInfoPage from '@/pages/discover/c-pages/recommend/c-components/new-album/new-album-info-page'
 import SettleSingerInfoPage from '@/pages/discover/c-pages/recommend/c-components/settle-singer/settle-singer-info-page'
+import VideInfoPage from '@/pages/search/c-components/video/vide-info-page'
 const routes = [
     {
         path:'/',
@@ -73,6 +75,10 @@ const routes = [
             {
                 path:'/discover/settleSingerInfoPage',
                 component:SettleSingerInfoPage
+            },
+            {
+                path:'/discover/viedeoinfopage',
+                component:VideInfoPage
             }
         ]
     },
@@ -83,6 +89,10 @@ const routes = [
     {
         path:'/friend',
         component:Fridend
+    },
+    {
+        path:'/search',
+        component:Search
     }
 ];
 export default routes;

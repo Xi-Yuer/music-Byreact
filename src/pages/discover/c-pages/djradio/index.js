@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
-
+import Lazy from '@/components/lazy'
 export default memo(function Djradio() {
     return (
         <div>
-            <h2>Djradio</h2>
+            <Lazy/>
         </div>
     )
 })

@@ -42,11 +42,11 @@ export const FooterRight = styled.ul`
       display: block;
       width: 50px;
       height: 45px;
-      background-image: url(${require("@/assets/img/sprite_footer_02.png")});
+      background-image: url('https://s2.music.126.net/style/web2/img/foot_enter_new.png?48df445436f19e9dc922a672fc706628');
       background-size: 110px 450px;
     }
     :nth-child(1) .link {
-      background-position: -60px -101px;
+      background-position: -60px -80px;
     }
     :nth-child(2) .link {
       background-position: 0 0;
@@ -62,7 +62,7 @@ export const FooterRight = styled.ul`
       display: block;
       width: 52px;
       height: 10px;
-      background-image: url(${require("@/assets/img/sprite_footer_01.png")});
+      background-image: url('');
       background-size: 180px 100px;
     }
     :nth-child(1) .title {

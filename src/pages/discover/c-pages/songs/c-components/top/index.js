@@ -10,17 +10,34 @@ export default memo(function Top(props) {
     changeCat(cat.name);
     setIsShow(true);
   };
+  const closeAll = e => {
+    if (!isShow) {
+      setIsShow(!isShow);
+    }
+  };
   return (
     sub.length !== 0 &&
     Category.length !== 0 && (
-      <StyleWrapper isShow={isShow ? 'none' : ''}>
+      <StyleWrapper
+        isShow={isShow ? 'none' : ''}
+        onClick={e => {
+          closeAll(e);
+        }}
+      >
         <span className='className'>{name}</span>
         <span className='classControl' onClick={e => setIsShow(!isShow)}>
           选择分类
           <DownOutlined />
         </span>
         <div className='wrapper'>
-          <div className='header' onClick={e => {itemClick({name:'全部'})}}><span>全部风格</span></div>
+          <div
+            className='header'
+            onClick={e => {
+              itemClick({ name: '全部' });
+            }}
+          >
+            <span>全部风格</span>
+          </div>
           <div className='main'>
             <div className='left'>
               {Category.map(item => {
