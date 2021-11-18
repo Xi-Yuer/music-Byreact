@@ -20,7 +20,7 @@ export default memo(function App() {
       <Provider store={store}>
         <ConfigProvider locale={zhCN}>
         <BrowserRouter>
-          <Header />
+          <Header/>
           {renderRoutes(routes)}
           <Footer />
           <Player/>

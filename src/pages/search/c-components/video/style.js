@@ -13,20 +13,19 @@ margin-top:20px;
 export const StyleWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 
   .item {
     position: relative;
     display: flex;
     cursor: pointer;
     flex-direction: column;
-    flex: 1;
-    padding-right: 12px;
-    margin-bottom: 35px;
+    margin-right:15px;
+    margin-bottom: 25px;
     line-height: 25px;
     .playCount {
       position: absolute;
-      width: 89%;
+      width: 100%;
       height: 20px;
       background-color: #00000054;
       z-index: 10;

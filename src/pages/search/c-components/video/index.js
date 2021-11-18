@@ -24,7 +24,7 @@ export default memo(function Video(props) {
       </StyleTop>
       <StyleWrapper>
         {video.length !== 0 &&
-          video.map(item => {
+          video.filter(item=>item.type===0).map(item => {
             return (
               <div key={item.vid} className='item' onClick={e=>{jumpToVideInfoPage(item)}}>
                 <div>
@@ -44,7 +44,8 @@ export default memo(function Video(props) {
                 </div>
               </div>
             );
-          })}
+          })
+          }
       </StyleWrapper>
     </div>
   );

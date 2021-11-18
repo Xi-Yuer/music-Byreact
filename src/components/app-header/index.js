@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { HeaderWrapper, HeaderLeft, HeaderRight } from './style';
+import { AppHeaderWrapper, HeaderLeft, HeaderRight } from './style';
 
 import { headerLinks } from '@/common/local-data';
 import { NavLink } from 'react-router-dom';
@@ -28,10 +28,10 @@ export default memo(function Header() {
     }
   };
   return (
-    <HeaderWrapper>
+    <AppHeaderWrapper>
       <div className='content wrap-v1'>
         <HeaderLeft>
-          <a href='#/' className='logo sprite_01'>
+          <a href='/' className='logo sprite_01'>
             {' '}
           </a>
           <div className='select-list'>
@@ -61,6 +61,6 @@ export default memo(function Header() {
         </HeaderRight>
       </div>
       <div className='divider'></div>
-    </HeaderWrapper>
+    </AppHeaderWrapper>
   );
 });

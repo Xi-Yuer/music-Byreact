@@ -91,7 +91,7 @@ export default memo(function Search(props) {
               <TabPane tab='专辑' key='10'>
                 <Album album={album} searchKeywords={searchKeywords} />
               </TabPane>
-              <TabPane tab='视频' key='1014'>
+              <TabPane tab='MV' key='1014'>
                 <Video video={video} searchKeywords={searchKeywords} />
               </TabPane>
               <TabPane tab='歌单' key='1000'>
