@@ -12,7 +12,8 @@ import { getSearchData } from './getData';
 import { RecommendWraper, Content, RecommendLeft } from './style';
 
 export default memo(function Search(props) {
-  const [searchKeywords, setSearchKeywords] = useState(props.location.state);
+
+  const [searchKeywords=props.location.state, setSearchKeywords] = useState();
   const [type, setType] = useState(1);
 
   useEffect(() => {
@@ -60,6 +61,10 @@ export default memo(function Search(props) {
     [type]
   );
 
+  const InputValueChange = (e) => {
+    setSearchKeywords(e.target.value)
+  }
+
   const TabClick = key => {
     setType(+key);
     if (searchKeywords) {
@@ -76,6 +81,7 @@ export default memo(function Search(props) {
                 placeholder='搜索歌曲/视频/歌手/专辑/歌单'
                 onSearch={SearchBtnClick}
                 defaultValue={searchKeywords}
+                onPressEnter={InputValueChange}
                 style={{ width: 500 }}
               />
             </div>

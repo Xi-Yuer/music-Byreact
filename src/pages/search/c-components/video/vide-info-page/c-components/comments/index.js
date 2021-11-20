@@ -5,15 +5,15 @@ import { getSizeImage, formatDate } from "@/utils/format-utils";
 import { MusicCommen } from "./style";
 
 export default memo(function Comments(props) {
-  const { hotComments } = props;
+  const { hotComments=[] } = props;
   return (
     hotComments.length!==0 && <MusicCommen>
       <div className="line">
         <b>精彩评论</b>
       </div>
-      {hotComments.map((item) => {
+      {hotComments.map((item,index) => {
         return (
-          <div key={item.commentId} className="content1">
+          <div key={index} className="content1">
             <div className="userImg">
               <img src={getSizeImage(item.user.avatarUrl, 50)} alt="" />
             </div>

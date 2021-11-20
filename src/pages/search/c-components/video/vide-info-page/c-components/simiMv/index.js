@@ -5,7 +5,7 @@ import { StyleWrapper } from './style'
 
 import { getSizeImage,formatDate } from '@/utils/format-utils';
 export default memo(function SimiMv(props) {
-  const { simiMv, simiMvClick } = props;
+  const { simiMv=[], simiMvClick } = props;
   const itemClick = (item)=>{
       simiMvClick(item.id)
   }

@@ -1,4 +1,6 @@
 import request from '@/services/requset';
+
+// mv
 export function getVideoDetail(mvid) {
   return request({
     url: '/mv/detail/info',
@@ -33,6 +35,15 @@ export function getVideoComments(id) {
   });
 }
 
+export function getOridinaryVideoComments(id) {
+  return request({
+    url: '/comment/video',
+    params: {
+      id,
+    },
+  });
+}
+
 export function getSimiMv(mvid) {
   return request({
     url: '/simi/mv',
@@ -40,4 +51,40 @@ export function getSimiMv(mvid) {
       mvid,
     },
   });
+}
+export function getSimiVideo(id) {
+  return request({
+    url: '/related/allvideo',
+    params: {
+      id,
+    },
+  });
+}
+
+// 视频
+export function getVideInfo(id) {
+  return request({
+    url:'/video/detail',
+    params:{
+      id
+    }
+  })
+}
+
+export function getOrdinary(vid) {
+  return request({
+    url:'/video/detail/info',
+    params:{
+      vid
+    }
+  })
+}
+
+export function getRrdinaryUrl(id) {
+  return request({
+    url:'/video/url',
+    params:{
+      id
+    }
+  })
 }
