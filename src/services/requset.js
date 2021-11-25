@@ -1,7 +1,7 @@
 import originAxios from "axios";
 import React from "react";
 import ReactDOM from "react-dom";
-import { Spin, message } from 'antd';
+import { Spin } from 'antd';
 // import Cookies from 'js-cookie'  
 export default function request(option) {
   return new Promise((resolve, reject) => {
@@ -45,7 +45,7 @@ export default function request(option) {
       },
       (err) => {
         document.body.removeChild(document.getElementById('loading'))
-        message.error('失败！该歌曲或视频可能需要vip，请登录');
+        // message.error('您可能需要刷新一下哦！');
         // console.log("来到了response拦截failure中");
         if (err && err.response) {
           switch (err.response.status) {
