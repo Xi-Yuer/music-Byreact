@@ -9,7 +9,7 @@ export const Content = styled.div`
 `;
 
 export const RecommendLeft = styled.div`
-  width: 250px;
+  width: 251px;
   border: 1px solid #d3d3d3;
   border-width: 0 1px;
 `;

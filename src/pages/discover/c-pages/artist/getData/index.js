@@ -5,7 +5,8 @@ export function getArtists(type,area) {
         url:'/artist/list',
         params:{
             type,
-            area
+            area,
+            limit:32
         }
     })
 }

@@ -7,11 +7,14 @@ export const StyleWrapper = styled.div`
     align-items:center;
     .artistItem{
         padding:20px;
-        cursor:pointer;
         span{
+            cursor:pointer;
             margin-top:10px;
             display:inline-block;
-            color:'#4884e4'
+            color:#6899e7;
+            :hover{
+                text-decoration:underline;
+            }
         }
     }
 `
