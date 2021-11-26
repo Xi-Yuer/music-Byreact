@@ -1,10 +1,11 @@
 import request from '@/services/requset';
 
-export function getAlbumInfo() {
+export function getAlbumInfo(limit,offset) {
   return request({
     url: '/top/album',
     params: {
-      limit: 14,
+      limit,
+      offset
     },
   });
 }

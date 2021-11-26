@@ -11,11 +11,11 @@ export default memo(function Ranking() {
   const SoaringList = useSelector(state => state.SoaringList)
   return (
     <RankingWrapper>
-      <ThemeHeaderRCM title="榜单" />
+      <ThemeHeaderRCM title="榜单" target={'/discover/ranking'} />
       <div className='tops'>
-        <TopRanking info={HotSongList} />
-        <TopRanking info={OriginalCreationList} />
-        <TopRanking info={SoaringList} />
+        <TopRanking info={HotSongList} target={'/discover/ranking'} />
+        <TopRanking info={OriginalCreationList} target={'/discover/ranking'}  />
+        <TopRanking info={SoaringList} target={'/discover/ranking'}  />
       </div>
     </RankingWrapper>
   );

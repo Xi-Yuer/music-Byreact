@@ -22,7 +22,10 @@ export default memo(function HYSettleSinger() {
 
   return (
     <SetterSongerWrapper>
-      <HYThemeHeaderSmall title="热门歌手" more="查看全部>" />
+      <HYThemeHeaderSmall 
+                  title="热门歌手" 
+                  more="查看全部>" 
+                  target={'/discover/artist'} />
       <div className="singer-list">
         {singer.map((item, index) => {
           return (

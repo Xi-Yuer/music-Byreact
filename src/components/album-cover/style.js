@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const AlbumWrapper = styled.div`
+    cursor:pointer;
   .album-image {
     position: relative;
     width: ${props => props.width};
     height: ${props => props.size};
     overflow: hidden;
     margin-top: 15px;
-
     img {
       width: ${props => props.size};
       height: ${props => props.size};

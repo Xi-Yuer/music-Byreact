@@ -7,6 +7,7 @@ export const StyleWrapper = styled.div`
     align-items:center;
     .artistItem{
         padding:20px;
+        cursor:pointer;
         span{
             cursor:pointer;
             margin-top:10px;

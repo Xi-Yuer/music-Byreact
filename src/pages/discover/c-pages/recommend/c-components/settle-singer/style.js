@@ -10,7 +10,7 @@ export const SetterSongerWrapper = styled.div`
       margin-top: 14px;
       background-color: #fafafa;
       text-decoration: none;
-
+      cursor:pointer;
       :hover {
         background-color: #f4f4f4;
       }

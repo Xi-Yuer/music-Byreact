@@ -1,25 +1,25 @@
 import React, { memo } from "react";
 import { MusicInfoWrapper } from "./style";
-import { useSelector } from "react-redux";
+import { useSelector,shallowEqual } from "react-redux";
 import { getCount } from "@/utils/format-utils";
 export default memo(function MusicPlayBar() {
   const { CurrentMusicInfo, currentMusicCommon } = useSelector((state) => ({
     CurrentMusicInfo: state.CurrentMusicInfo,
     currentMusicCommon: state.currentMusicCommon,
-  }));
+  }),shallowEqual);
   return (
-    <MusicInfoWrapper>
+    CurrentMusicInfo!==undefined &&  <MusicInfoWrapper>
       <div className="content1">
         <div className="title">
           <em>{CurrentMusicInfo.name}</em>
         </div>
         <div className="singerName">
           <span className="font-grey">歌手:</span>
-          <span className="font-blue">{CurrentMusicInfo.ar[0].name} </span>
+          <span className="font-blue">{CurrentMusicInfo.ar?CurrentMusicInfo.ar[0].name: CurrentMusicInfo.artists[0].name} </span>
         </div>
         <div className="musicalbum">
           <span className="font-grey">所属专辑: </span>
-          <span className="font-blue">{CurrentMusicInfo.al.name}</span>
+          <span className="font-blue">{CurrentMusicInfo.al?CurrentMusicInfo.al.name:CurrentMusicInfo.album.name}</span>
         </div>
         <div className="control">
           <span

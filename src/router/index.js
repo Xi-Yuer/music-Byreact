@@ -17,6 +17,7 @@ import AlbumInfo from '@/pages/discover/c-pages/recommend/c-components/album-inf
 import NewAlbumInfoPage from '@/pages/discover/c-pages/recommend/c-components/new-album/new-album-info-page'
 import SettleSingerInfoPage from '@/pages/discover/c-pages/recommend/c-components/settle-singer/settle-singer-info-page'
 import VideInfoPage from '@/pages/search/c-components/video/vide-info-page'
+import DjRadioInfoPage from '@/pages/discover/c-pages/djradio/diradio-info-page'
 const routes = [
     {
         path:'/',
@@ -79,6 +80,10 @@ const routes = [
             {
                 path:'/discover/viedeoinfopage',
                 component:VideInfoPage
+            },
+            {
+                path:'/discover/diradioinfopage',
+                component:DjRadioInfoPage
             }
         ]
     },

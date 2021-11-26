@@ -16,7 +16,7 @@ export default memo(function SongMenu(props) {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const itemClick = id => {
+  const itemClick = (item,id) => {
     dispatch(createAction(CHANGECURRENTALBUMID, id));
     history.push({
       pathname: '/discover/albumInfo',
@@ -47,7 +47,7 @@ export default memo(function SongMenu(props) {
                   className='header musicList'
                   key={item.id}
                   onClick={e => {
-                    itemClick(item.id);
+                    itemClick(item,item.id);
                   }}
                 >
                   <span className='span1 text-nowrap'>{index + 1}</span>

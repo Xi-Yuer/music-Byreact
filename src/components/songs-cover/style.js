@@ -3,7 +3,12 @@ import styled from "styled-components";
 export const ThemeCoverWrapper = styled.div`
   width: 140px;
   margin: 20px ${props => (props.right || 0)} 20px 0;
-
+  cursor:pointer;
+  .cover-bottom{
+    :hover{
+      text-decoration:underline;
+    }
+  }
   .cover-top {
     position: relative;
 

@@ -23,7 +23,7 @@ const JumpToAlbumInfoPage = (item)=>{
 
   return (
     <AlbumWrapper>
-      <ThemeHeaderRCM title="新碟上架" />
+      <ThemeHeaderRCM title="新碟上架" target={'/discover/album'} />
       <div className="content">
         <div
           className="arrow arrow-left sprite_02"

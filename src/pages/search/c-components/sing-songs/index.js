@@ -13,7 +13,7 @@ export default memo(function SongList(props) {
   const { songs = [], searchKeywords } = props;
   const dispatch = useDispatch();
 
-  const itemClick = (id) => {
+  const itemClick = (item,id) => {
     dispatch(SendMusicRquest(id));
     dispatch(createAction(CHANGEPLAYLIST, songs));
   };
@@ -43,7 +43,7 @@ export default memo(function SongList(props) {
                     <i
                       className="iconfont icon24gl-play"
                       onClick={(e) => {
-                        itemClick(item.id);
+                        itemClick(item,item.id);
                       }}
                     >
                       {" "}

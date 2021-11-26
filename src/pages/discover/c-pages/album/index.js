@@ -16,7 +16,7 @@ export default memo(function Album() {
   const history = useHistory();
 
   useEffect(() => {
-    getAlbumInfo().then(res => {
+    getAlbumInfo(21).then(res => {
       setHotAlbums(res.albums);
     });
   }, []);
@@ -24,6 +24,9 @@ export default memo(function Album() {
   useEffect(() => {
     getAlbumMoreInfo('ALL').then(res => {
       console.log(res);
+      setOtherAlbums(res.albums);
+    });
+    getAlbumInfo(21, 23).then(res => {
       setOtherAlbums(res.albums);
     });
   }, []);
@@ -40,7 +43,7 @@ export default memo(function Album() {
       <StyleWrapper className='wrap-v2'>
         <Content>
           <div>
-            <Title title='热门新碟' />
+            <Title title='热门新碟' target={'/discover/album'} />
             <div className='hotAlbum'>
               {hotAlbums.map(item => {
                 return (
@@ -60,23 +63,29 @@ export default memo(function Album() {
             <Title
               title='全部新碟'
               keyword={['全部', '华语', '欧美', '韩国', '日本']}
+              target={'/discover/album'}
             />
-            {otherAlbums !== undefined ? (
-              otherAlbums.map(item => {
-                return (
-                  <div
-                    onClick={e => {
-                      JumpToAlbumInfoPage(item);
-                    }}
-                    key={item.id}
-                  >
-                    <AlbumCover info={item} />
-                  </div>
-                );
-              })
-            ) : (
-              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='该接口需要登录' />
-            )}
+            <div className='hotAlbum'>
+              {otherAlbums !== undefined ? (
+                otherAlbums.map(item => {
+                  return (
+                    <div
+                      onClick={e => {
+                        JumpToAlbumInfoPage(item);
+                      }}
+                      key={item.id}
+                    >
+                      <AlbumCover info={item} />
+                    </div>
+                  );
+                })
+              ) : (
+                <Empty
+                  image={Empty.PRESENTED_IMAGE_SIMPLE}
+                  description='该接口需要登录'
+                />
+              )}
+            </div>
           </div>
         </Content>
       </StyleWrapper>

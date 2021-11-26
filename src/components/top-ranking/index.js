@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 import { CHANGEPLAYLIST } from "@/store/config";
 import createAction from "@/store/create-action";
@@ -11,7 +12,7 @@ import { TopRankingWrapper } from './style';
 
 export default memo(function TopRanking(props) {
   // props and state
-  const { info } = props;
+  const { info,target } = props;
   const { tracks = [] } = info;
 
   // redux hooks
@@ -61,7 +62,7 @@ export default memo(function TopRanking(props) {
         }
       </div>
       <div className="footer">
-        <a href="/">查看全部 &gt;</a>
+        <Link to={target}>查看全部 &gt;</Link>
       </div>
     </TopRankingWrapper>
   )

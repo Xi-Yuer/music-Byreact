@@ -1,7 +1,8 @@
 import React, { memo } from "react";
+import { Link } from "react-router-dom";
 import { HeaderWrapper } from "./style";
 export default memo(function ThemeHeaderRCM(props) {
-    const { title,keyword=[] } = props
+    const { title,keyword=[] , target} = props
   return (
     <HeaderWrapper className='sprite_02'>
       <div className="left">
@@ -11,7 +12,7 @@ export default memo(function ThemeHeaderRCM(props) {
                   keyword.map((item,index)=>{
                       return (
                           <div className='item' key={item}>
-                              <a href="#/">{item}</a>
+                              <Link to={target}>{item}</Link>
                               <span className='divider'> | </span>
                           </div>
                       )
@@ -20,7 +21,7 @@ export default memo(function ThemeHeaderRCM(props) {
           </div>
       </div>
       <div className="right">
-          <a href="/">更多</a>
+          <Link to={target}>更多</Link>
           <i className='icon sprite_02'></i>
       </div>
     </HeaderWrapper>

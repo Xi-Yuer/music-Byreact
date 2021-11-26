@@ -21,7 +21,7 @@ export default memo(function HotRecommend(props) {
   }
   return (
     <HotRecommendWrapper>
-        <ThemeHeaderRCM title='热门推荐' keyword={['华语','流行','民谣','摇滚','电子']}/>
+        <ThemeHeaderRCM title='热门推荐' keyword={['华语','流行','民谣','摇滚','电子']} target={'/discover/songs'}/>
         <div className='recommend-list'>
           {
             recommends.map((item,index)=>{
