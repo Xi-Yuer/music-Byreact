@@ -1,6 +1,7 @@
 import styled from "styled-components";
 export const StyleWrapper = styled.div`
   .albumSongs {
+    position: relative;
     .title {
       margin-top: 20px;
       border-bottom: 2px solid red;
@@ -45,5 +46,10 @@ export const StyleWrapper = styled.div`
         }
       }
     }
+  }
+  .Pagination{
+    display:flex;
+    justify-content:center;
+    margin:20px  auto;
   }
 `;

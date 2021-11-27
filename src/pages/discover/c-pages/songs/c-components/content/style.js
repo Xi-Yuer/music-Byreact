@@ -62,3 +62,8 @@ export const ThemeCoverWrapper = styled.div`
     color: #666;
   }
 `;
+export const StylePagination = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+`;

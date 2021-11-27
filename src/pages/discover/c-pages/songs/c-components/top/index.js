@@ -54,6 +54,7 @@ export default memo(function Top(props) {
                         onClick={e => {
                           itemClick(item);
                         }}
+                        key={item.name}
                       >
                         {item.name}
                       </span>
@@ -69,6 +70,7 @@ export default memo(function Top(props) {
                         onClick={e => {
                           itemClick(item);
                         }}
+                        key={item.name}
                       >
                         {item.name}
                       </span>
@@ -84,6 +86,7 @@ export default memo(function Top(props) {
                         onClick={e => {
                           itemClick(item);
                         }}
+                        key={item.name}
                       >
                         {item.name}
                       </span>
@@ -99,6 +102,7 @@ export default memo(function Top(props) {
                         onClick={e => {
                           itemClick(item);
                         }}
+                        key={item.name}
                       >
                         {item.name}
                       </span>
@@ -114,6 +118,7 @@ export default memo(function Top(props) {
                         onClick={e => {
                           itemClick(item);
                         }}
+                        key={item.name}
                       >
                         {item.name}
                       </span>

@@ -1,9 +1,11 @@
 import request from '@/services/requset'
-export function getTopPlayListData(cat){
+export function getTopPlayListData(cat,limit,offset){
     return request({
         url:'/top/playlist',
         params:{
-            cat
+            cat,
+            limit,
+            offset:offset*limit
         }
     })
 }
