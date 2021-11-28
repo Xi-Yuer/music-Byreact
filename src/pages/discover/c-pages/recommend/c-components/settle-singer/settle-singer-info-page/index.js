@@ -17,6 +17,7 @@ export default memo(function SettleSingerPage(props) {
   const [songs, setSongs] = useState();
   const [singerIntroduction, setSingerIntroduction] = useState();
   const [showMore, setShowMore] = useState(true);
+  const [simisinger, setSimisinger] = useState()
 
   const singerInfo = props.location.state;
   const id = props.location.state.id;
@@ -33,7 +34,7 @@ export default memo(function SettleSingerPage(props) {
       setSingerIntroduction(res.introduction);
     });
     getSimiSinger(id).then((res)=>{
-      console.log(res);
+      setSimisinger(res.artists)
     })
   }, [id]);
   return (
@@ -72,7 +73,7 @@ export default memo(function SettleSingerPage(props) {
           <SongList songs={songs} />
         </RecommendLeft>
         <RecommendRight>
-          <SimiSinger/>
+          <SimiSinger singer={simisinger}/>
         </RecommendRight>
       </Content>
     </RecommendWraper>

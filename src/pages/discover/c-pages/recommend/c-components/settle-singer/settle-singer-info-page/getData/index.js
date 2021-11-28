@@ -5,7 +5,9 @@ export function getSingerInfo(id){
     return request({
         url:'/artist/desc',
         params:{
-            id
+            id,
+            cookie:window.localStorage.getItem('cookie'),
+            token:window.localStorage.getItem('token')
           }
     })
 }
@@ -16,7 +18,9 @@ export function getSingerSongs(id) {
     return request({
         url:'/artist/top/song',
         params:{
-            id
+            id,
+            cookie:window.localStorage.getItem('cookie'),
+            token:window.localStorage.getItem('token')
           }
     })
 }
@@ -26,7 +30,9 @@ export function getSimiSinger(id) {
     return request({
         url:'/simi/artist',
         params:{
-            id
+            id,
+            cookie:window.localStorage.getItem('cookie'),
+            token:window.localStorage.getItem('token')
           }
     })
 }

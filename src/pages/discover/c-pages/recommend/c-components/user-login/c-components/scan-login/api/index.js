@@ -1,11 +1,8 @@
 import request from '@/services/requset'
-export function login(phone,password) {
+export function getScanKey() {
     return request({
-        url:'/login/cellphone',
-        methods:'POST',
+        url:'/login/qr/key',
         params:{
-            phone,
-            password,
             timestamp:Date.parse(new Date()) / 1000
         }
     })

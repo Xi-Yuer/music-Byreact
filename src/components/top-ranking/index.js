@@ -12,7 +12,7 @@ import { TopRankingWrapper } from './style';
 
 export default memo(function TopRanking(props) {
   // props and state
-  const { info,target } = props;
+  const { info,target='' } = props;
   const { tracks = [] } = info;
 
   // redux hooks

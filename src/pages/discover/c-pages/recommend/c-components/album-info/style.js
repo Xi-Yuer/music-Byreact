@@ -90,6 +90,11 @@ export const PlayerLeft = styled.div`
         }
       }
     }
+    .Pagination{
+      display:flex;
+      justify-content:center;
+      margin-top:20px;
+    }
   }
 `;
 

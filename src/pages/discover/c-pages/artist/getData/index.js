@@ -8,7 +8,9 @@ export function getArtists(type,area,limit,offset) {
             area,
             limit,
             offset:offset*limit,
-            initial:'-1'
+            initial:'-1',
+            cookie:window.localStorage.getItem('cookie'),
+            token:window.localStorage.getItem('token')
         }
     })
 }

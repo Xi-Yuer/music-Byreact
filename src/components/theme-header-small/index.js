@@ -7,7 +7,7 @@ import {
 } from "./style";
 
 const HYThemeHeaderSmall = memo(function (props) {
-  const { title, more='', target } = props;
+  const { title, more='', target='' } = props;
 
   return (
     <HeaderWrapper>
