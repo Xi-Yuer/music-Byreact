@@ -10,6 +10,9 @@ export const StyleWrapper = styled.div`
       span b {
         color: red;
       }
+      .searchKeywords{
+    color:red;
+  }
     }
     .header {
       display: flex;

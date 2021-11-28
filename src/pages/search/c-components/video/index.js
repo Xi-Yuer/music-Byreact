@@ -8,7 +8,7 @@ import { getSizeImage, getCount } from '@/utils/format-utils';
 import { StyleWrapper, StyleTop } from './style';
 
 export default memo(function Video(props) {
-  const { video = [], searchKeywords } = props;
+  const { video = [], searchKeywords, total } = props;
   const history = useHistory()
 
   const jumpToVideInfoPage = item => {
@@ -17,9 +17,9 @@ export default memo(function Video(props) {
   return (
     <div>
       <StyleTop className='title'>
-        <h2>搜索"{searchKeywords}"</h2>
+        <h2>搜索"<span className='searchKeywords'>{searchKeywords}</span>"</h2>
         <span>
-          找到 <b>{video.length}</b> 个视频
+          找到 <b>{total}</b> 个视频
         </span>
       </StyleTop>
       <StyleWrapper>

@@ -3,11 +3,14 @@ import styled from 'styled-components';
 export const StyleWrapper = styled.div`
     display:flex;
     flex-wrap:wrap;
-    justify-content:space-evenly;
+    justify-content:flex-start;
     align-items:center;
     .artistItem{
         padding:20px;
         cursor:pointer;
+        img{
+            border:1px dotted #bebebe;
+        }
         span{
             cursor:pointer;
             margin-top:10px;
@@ -17,5 +20,8 @@ export const StyleWrapper = styled.div`
                 text-decoration:underline;
             }
         }
+    }
+    .Pagination{
+        margin:0 auto;
     }
 `

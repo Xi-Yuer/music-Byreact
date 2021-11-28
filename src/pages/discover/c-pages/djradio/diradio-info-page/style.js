@@ -4,9 +4,8 @@ export const RecommendWraper = styled.div``;
 
 export const Content = styled.div`
   background-color: #fff;
-  /* display: flex; */
   padding: 20px;
-  width: 729px;
+  width: 1000px;
   .navInfo {
     display: flex;
     width:100%;

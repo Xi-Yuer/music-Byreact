@@ -14,9 +14,9 @@ import {
   CHANGECURRENTLYRICINDEX,
   CHANGECURRENTMUSICCOMMON,
   CHANGECURRESIMISONGS,
-  CHANGECURRENTALBUMID
-} from "./config";
-import init from "./init";
+  CHANGECURRENTALBUMID,
+} from './config';
+import init from './init';
 function reducer(state = init, action) {
   const { type, data } = action;
   switch (type) {

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyleWrapper = styled.div`
+  background-color:white;
   .carouselItem {
     display: flex;
     flex-wrap: wrap;

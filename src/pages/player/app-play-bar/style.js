@@ -22,6 +22,7 @@ export const PlaybarWrapper = styled.div`
 `
 
 export const Control = styled.div`
+position: relative;
   display: flex;
   align-items: center;
   .prev, .next {

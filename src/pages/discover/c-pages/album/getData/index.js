@@ -5,7 +5,7 @@ export function getAlbumInfo(limit,offset) {
     url: '/top/album',
     params: {
       limit,
-      offset
+      offset:offset*limit
     },
   });
 }

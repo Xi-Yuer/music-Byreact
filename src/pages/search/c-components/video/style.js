@@ -9,6 +9,9 @@ margin-top:20px;
   span b {
     color: red;
   }
+  .searchKeywords{
+    color:red;
+  }
 `;
 export const StyleWrapper = styled.div`
   display: flex;

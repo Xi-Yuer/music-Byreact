@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Empty } from 'antd';
+import { Empty, Pagination } from 'antd';
 
 import { StyleWrapper, Content } from './style';
 
@@ -11,15 +11,21 @@ import AlbumCover from './c-components';
 import { getAlbumInfo, getAlbumMoreInfo } from './getData';
 
 export default memo(function Album() {
+
   const [hotAlbums = [], setHotAlbums] = useState();
+  const [total, setTotal] = useState()
   const [otherAlbums, setOtherAlbums] = useState();
+  const [limit, setLimit] = useState(21)
+  const [offset, setOffset] = useState(0)
+
   const history = useHistory();
 
   useEffect(() => {
-    getAlbumInfo(21).then(res => {
+    getAlbumInfo(limit,offset).then(res => {
       setHotAlbums(res.albums);
+      setTotal(res.total)
     });
-  }, []);
+  }, [limit,offset]);
 
   useEffect(() => {
     getAlbumMoreInfo('ALL').then(res => {
@@ -39,7 +45,7 @@ export default memo(function Album() {
   };
 
   return (
-    hotAlbums !== undefined && (
+    hotAlbums !== undefined ?(
       <StyleWrapper className='wrap-v2'>
         <Content>
           <div>
@@ -53,11 +59,20 @@ export default memo(function Album() {
                     }}
                     key={item.id}
                   >
-                    <AlbumCover info={item} />
+                    <AlbumCover info={item}/>
                   </div>
                 );
               })}
             </div>
+              <div className='Pagination'>
+                <Pagination 
+                      defaultCurrent={1} 
+                      total={total}
+                      onChange={e=>{setOffset(e)}}
+                      onShowSizeChange={(_,e)=>{setLimit(e)}}
+                      pageSizeOptions={[21, 42, 64, 108]}
+                      />
+              </div>
           </div>
           <div className='regin'>
             <Title
@@ -89,6 +104,6 @@ export default memo(function Album() {
           </div>
         </Content>
       </StyleWrapper>
-    )
+    ):<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
   );
 });

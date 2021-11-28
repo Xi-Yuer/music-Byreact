@@ -10,7 +10,7 @@ import createAction from "@/store/create-action";
 
 export default memo(function SongList(props) {
 
-  const { songs = [], searchKeywords } = props;
+  const { songs = [], searchKeywords, offset, limit, total } = props;
   const dispatch = useDispatch();
 
   const itemClick = (item,id) => {
@@ -22,9 +22,9 @@ export default memo(function SongList(props) {
       <StyleWrapper>
         <div className="albumSongs">
           <div className="title">
-            <h2>搜索"{searchKeywords}"</h2>
+            <h2>搜索"<span className='searchKeywords'>{searchKeywords}</span>"</h2>
             <span>
-              找到 <b>{songs.length}</b> 首单曲
+              找到 <b>{total}</b> 首单曲
             </span>
           </div>
           <div>
@@ -38,7 +38,7 @@ export default memo(function SongList(props) {
             {songs.map((item, index) => {
               return (
                 <div className="header musicList" key={item.id}>
-                  <span className="span1 text-nowrap">{index + 1}</span>
+                  <span className="span1 text-nowrap">{index + 1 + offset * limit-limit}</span>
                   <span className="span2 text-nowrap">
                     <i
                       className="iconfont icon24gl-play"

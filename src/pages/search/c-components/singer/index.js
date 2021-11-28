@@ -8,7 +8,7 @@ import { getSizeImage } from '@/utils/format-utils';
 import { StyleTop, StyleWrapper } from './style';
 
 export default memo(function Singer(props) {
-  const { singer, searchKeywords } = props;
+  const { singer, searchKeywords,total } = props;
 
   const history = useHistory();
   const jumpToSettleSingerInfoPage = item => {
@@ -18,9 +18,9 @@ export default memo(function Singer(props) {
     singer !== undefined && (
       <div>
         <StyleTop className='title'>
-          <h2>搜索"{searchKeywords}"</h2>
+          <h2>搜索"<span className='searchKeywords'>{searchKeywords}</span>"</h2>
           <span>
-            找到 <b>{singer.length}</b> 个歌手
+            找到 <b>{total}</b> 个歌手
           </span>
         </StyleTop>
         <StyleWrapper>

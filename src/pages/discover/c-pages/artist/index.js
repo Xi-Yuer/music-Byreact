@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useState } from 'react';
+
 import {
   RecommendWraper,
   Content,
@@ -14,6 +15,8 @@ export default memo(function Artist() {
   const [artists = [], setArtists] = useState();
   const [typeId = -1, setTypeId] = useState();
   const [areaId = -1, setAreaId] = useState();
+  const [limit, setLimit] = useState(20)
+  const [offset, setOffset] = useState(0)
   const [typeName] = useState([
     { name: '全部', type: -1 },
     { name: '男歌手', type: 1 },
@@ -30,10 +33,10 @@ export default memo(function Artist() {
   ]);
 
   useEffect(() => {
-    getArtists(typeId, areaId).then(res => {
+    getArtists(typeId, areaId,limit,offset).then(res => {
       setArtists(res.artists);
     });
-  }, [typeId, areaId]);
+  }, [typeId, areaId,limit,offset]);
 
   const setTypeIdFn = type => {
     setTypeId(type);
@@ -55,7 +58,11 @@ export default memo(function Artist() {
           />
         </RecommendLeft>
         <RecommendRight>
-          <ArtistsMenu artists={artists} />
+          <ArtistsMenu 
+                artists={artists} 
+                setOffset={setOffset}
+                setLimit={setLimit}
+                />
         </RecommendRight>
       </Content>
     </RecommendWraper>

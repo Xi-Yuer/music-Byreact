@@ -74,6 +74,7 @@ export default memo(function Item(props) {
           defaultPageSize={20}
           onChange={onChange}
           onShowSizeChange={onShowSizeChange}
+          // showQuickJumper={true}
         />
       </StylePagination>
     </div>

@@ -7,7 +7,7 @@ import { StyleWrapper,StyleTop } from './style'
 
 
 export default memo(function Album(props) {
-    const { album=[], searchKeywords } = props
+    const { album=[], searchKeywords,total } = props
     const history = useHistory()
     const JumpToAlbumInfoPage = (item)=>{
         history.push({
@@ -20,9 +20,9 @@ export default memo(function Album(props) {
         album.length!==0 && 
         <div>
             <StyleTop className='title'>
-          <h2>搜索"{searchKeywords}"</h2>
+          <h2>搜索"<span className='searchKeywords'>{searchKeywords}</span>"</h2>
           <span>
-            找到 <b>{album.length}</b> 首专辑
+            找到 <b>{total}</b> 首专辑
           </span>
         </StyleTop>
         <StyleWrapper>

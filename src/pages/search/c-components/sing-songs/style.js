@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 export const StyleWrapper = styled.div`
   .albumSongs {
     .title {
@@ -8,6 +8,9 @@ export const StyleWrapper = styled.div`
       line-height: 35px;
       justify-content: space-between;
       span b {
+        color: red;
+      }
+      .searchKeywords {
         color: red;
       }
     }

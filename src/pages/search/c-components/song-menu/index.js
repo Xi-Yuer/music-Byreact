@@ -11,7 +11,7 @@ import { getCount, getSizeImage } from '@/utils/format-utils';
 
 export default memo(function SongMenu(props) {
 
-  const { searchKeywords, songsmenu = [] } = props;
+  const { searchKeywords, songsmenu = [],total } = props;
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -27,9 +27,9 @@ export default memo(function SongMenu(props) {
       <StyleWrapper>
         <div className='albumSongs'>
           <div className='title'>
-            <h2>搜索"{searchKeywords}"</h2>
+            <h2>搜索"<span className='searchKeywords'>{searchKeywords}</span>"</h2>
             <span>
-              找到 <b>{songsmenu.length}</b> 张歌单
+              找到 <b>{total}</b> 张歌单
             </span>
           </div>
           <div>
