@@ -16,6 +16,7 @@ export const getBanner = () => {
   return (dispatch) => {
     request({
       url: "banner",
+      isLoading:true,
     }).then((res) => {
       dispatch(creatAction(GETBANNERS, res.banners));
     });
@@ -26,6 +27,7 @@ export const getBanner = () => {
 export const getRecommends = () => {
   return (dispatch) => {
     request({
+      isLoading:true,
       url: "/personalized?limit=8",
     }).then((res) => {
       dispatch(creatAction(GETRECOMMENDS, res.result));
@@ -37,6 +39,7 @@ export const getRecommends = () => {
 export const getNewAlbum = () => {
   return (dispatch) => {
     request({
+      isLoading:true,
       url: "/top/album?offset=0&limit=10",
     }).then((res) => {
       dispatch(createAction(GETNEWALBUM, res.albums));
@@ -48,6 +51,7 @@ export const getNewAlbum = () => {
 export const HotSongList = () => {
   return (dispatch) => {
     request({
+      isLoading:true,
       url: "/top/list",
       params: {
         idx: "1",
@@ -61,6 +65,7 @@ export const HotSongList = () => {
 export const OriginalCreationList = () => {
   return (dispatch) => {
     request({
+      isLoading:true,
       url: "/top/list",
       params: {
         idx: "2",
@@ -74,6 +79,7 @@ export const OriginalCreationList = () => {
 export const SoaringList = () => {
   return (dispatch) => {
     request({
+      isLoading:true,
       url: "/top/list",
       params: {
         idx: "3",
@@ -88,6 +94,7 @@ export const SoaringList = () => {
 export const getHotAnchor = () => {
   return (dispatch) => {
     request({
+      isLoading:true,
       url: "/top/artists",
       params: {
         offset: "0",

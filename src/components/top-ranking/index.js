@@ -62,7 +62,7 @@ export default memo(function TopRanking(props) {
         }
       </div>
       <div className="footer">
-        <Link to={target}>查看全部 &gt;</Link>
+        <Link to={{pathname:target,state:{info:info}}}>查看全部 &gt;</Link>
       </div>
     </TopRankingWrapper>
   )

@@ -2,9 +2,9 @@ import React, { memo, useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { StyleWrapper } from './style';
 export default memo(function Top(props) {
-  const { sub = [], Category = [], changeCat } = props;
+  const { sub = [], Category = [], changeCat, title='全部' } = props;
   const [isShow, setIsShow] = useState(true);
-  const [name, setName] = useState('全部');
+  const [name=title, setName] = useState();
   const itemClick = cat => {
     setName(cat.name);
     changeCat(cat.name);

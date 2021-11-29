@@ -2,15 +2,14 @@ import originAxios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Spin } from 'antd';
-// import Cookies from 'js-cookie'
 export default function request(option) {
   return new Promise((resolve, reject) => {
+    const { isLoading = false } = option;
     // 1.创建axios的实例
     const instance = originAxios.create({
       baseURL: 'http://123.207.32.32:9001',
-      timeout: 30000,
+      timeout: 10000,
     });
-
     // 配置请求和响应拦截
     instance.interceptors.request.use(
       config => {
@@ -22,19 +21,14 @@ export default function request(option) {
         // 3.对请求的参数进行序列化(看服务器是否需要序列化)
         // config.data = qs.stringify(config.data)
         // 4.等等
-        // const token = Cookies.get('pmcucookie') || window.localStorage.getItem('token')
         // token && (config.headers.token = token)
         // config.metadata = {timestamp:new Date()}
-        const dom = document.createElement('div');
-        dom.setAttribute('id', 'loading');
-        document.body.appendChild(dom);
-        ReactDOM.render(<Spin tip='加载中' size='large' />, dom);
-        // config.headers['token'] = window.localStorage.getItem('token')
-        // config.headers = {
-        //   timestamp: Date.parse(new Date()) / 1000,
-        //   cookie: window.localStorage.getItem('cookie') || '',
-        //   token: window.localStorage.getItem('token') || '',
-        // };
+        if (isLoading) {
+          const dom = document.createElement('div');
+          dom.setAttribute('id', 'loading');
+          document.body.appendChild(dom);
+          ReactDOM.render(<Spin tip='加载中' size='large' />, dom);
+        }
         return config;
       },
       err => {
@@ -45,14 +39,16 @@ export default function request(option) {
 
     instance.interceptors.response.use(
       response => {
-        document.body.removeChild(document.getElementById('loading'));
+        if (isLoading) {
+          document.body.removeChild(document.getElementById('loading'));
+        }
         // console.log('来到了response拦截success中');
         return response.data;
       },
       err => {
-        document.body.removeChild(document.getElementById('loading'));
-        // message.error('您可能需要刷新一下哦！');
-        // console.log("来到了response拦截failure中");
+        if (isLoading) {
+          document.body.removeChild(document.getElementById('loading'));
+        }
         if (err && err.response) {
           switch (err.response.status) {
             case 400:

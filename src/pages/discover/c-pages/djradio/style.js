@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 export const StyleWrapper = styled.div`
-  background-color:white;
+  position: relative;
+  background-color: white;
   .carouselItem {
     display: flex;
     flex-wrap: wrap;
-    justify-content:flex-start;
-    text-align:center;
+    justify-content: flex-start;
+    text-align: center;
     .radioItem {
       padding: 10px;
       margin: 20px 25px;
-      cursor:pointer;
+      cursor: pointer;
     }
   }
   .ant-carousel .slick-prev,
@@ -20,12 +21,26 @@ export const StyleWrapper = styled.div`
     font-size: inherit;
     color: #414141;
   }
-  .djContent{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:space-between;
+  .djContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
-  .Empty{
-      margin:0 auto;
+  .Empty {
+    margin: 0 auto;
+  }
+  .LeftOutlined {
+    position: absolute;
+    left:-25px;
+    top:13%;
+    font-size:18px;
+    cursor:pointer;
+  }
+  .RightOutlined {
+    position: absolute;
+    right:-25px;
+    top:13%;
+    font-size:18px;
+    cursor:pointer;
   }
 `;

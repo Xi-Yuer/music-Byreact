@@ -7,10 +7,13 @@ import { HotSongList, getSongDetail } from './getData';
 import LeftMenu from './c-components/left-menu';
 import RightDetail from './c-components/right-detail';
 
-export default memo(function Rangking() {
+export default memo(function Rangking(props) {
+
+  const initId = props.location.state?.info.id || 19723756
+
   const [menuList = [], setMenuList] = useState();
   const [menuDetail, setMenuDetail] = useState();
-  const [id, setId] = useState(19723756);
+  const [id=initId, setId] = useState();
 
   useEffect(() => {
     HotSongList().then(res => {

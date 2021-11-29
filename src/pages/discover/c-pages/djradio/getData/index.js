@@ -7,6 +7,7 @@ export function getdjNavInfo() {
 
 export function getdjRecommend(type) {
     return request({
+        isLoading:true,
         url:'/dj/recommend/type',
         params:{
             type

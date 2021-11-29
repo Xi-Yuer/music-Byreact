@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { createRef, memo, useEffect, useState } from 'react';
 
 import { Carousel, Empty } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
@@ -16,7 +16,7 @@ export default memo(function Djradio() {
   const [categories = [], setCategories] = useState();
   const [type, setType] = useState(2001);
   const [djRadieInfo = [], setDjRadieInfo] = useState();
-
+  const CarouselRef = createRef()
   useEffect(() => {
     getdjNavInfo().then(res => {
       setCategories(res.categories);
@@ -30,12 +30,14 @@ export default memo(function Djradio() {
   return (
     categories.length !== 0 && (
       <StyleWrapper className='wrap-v2'>
+        <div className='LeftOutlined' onClick={e=>CarouselRef.current.prev()} >
+          <LeftOutlined />
+        </div>
+        <div className='RightOutlined' onClick={e=>CarouselRef.current.next()} >
+          <RightOutlined />
+        </div>
         <div>
-          <Carousel
-            arrows={true}
-            prevArrow={<LeftOutlined />}
-            nextArrow={<RightOutlined />}
-          >
+          <Carousel ref={CarouselRef}>
             <div>
               <div className='carouselItem'>
                 {categories.slice(0, 16).map(item => {

@@ -7,8 +7,10 @@ import { getTopPlayListData, getCategoryInfo } from './getData';
 import Top from './c-components/top';
 import Item from './c-components/content';
 
-export default memo(function Song() {
-  const [cat, setCat] = useState();
+export default memo(function Song(props) {
+  const title = props.location.state?.title || '全部';
+
+  const [cat = title, setCat] = useState();
   const [limit, setLimit] = useState(20);
   const [offset, setOffset] = useState(1);
 
@@ -47,7 +49,12 @@ export default memo(function Song() {
   return (
     Data !== undefined && (
       <StyleWrapper className='wrap-v2'>
-        <Top Category={Category} sub={sub} changeCat={changeCat} />
+        <Top
+          Category={Category}
+          sub={sub}
+          changeCat={changeCat}
+          title={title}
+        />
         <div className='content'>
           <Item item={Data} pageCounter={pageCount} offset={offsetPage} />
         </div>

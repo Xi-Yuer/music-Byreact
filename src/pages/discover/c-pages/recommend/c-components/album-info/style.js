@@ -68,7 +68,7 @@ export const PlayerLeft = styled.div`
         flex:1;
       }
       .span1{
-        flex:0.3;
+        flex:0.5;
         padding-left:30px;
       }
       .span2{

@@ -18,6 +18,7 @@ export default memo(function AlbumInfo() {
   const [{ playlist = [], id }, setAlbumInfo] = useState(2087916692);
   const [simiAlbum = [], setSimiAlbum] = useState([]);
   const [currentPage, setCurrentPage] = useState(1)
+  const [pageCount, setPageCount] = useState(10)
 
   useEffect(() => {
     getAlbumInfo(currentAlbumId)
@@ -87,7 +88,7 @@ export default memo(function AlbumInfo() {
                   <span className='span4'>歌手</span>
                   <span className='span5'>专辑</span>
                 </div>
-                {playlist.trackIds.slice(currentPage*10-10, currentPage*10).map((item, index) => {
+                {playlist.trackIds.slice(currentPage*10-10, currentPage*pageCount).map((item, index) => {
                   return <ListItem key={item.id} id={item.id} index={index} currentPage={currentPage} />;
                 })}
               </div>
@@ -96,6 +97,7 @@ export default memo(function AlbumInfo() {
                 defaultCurrent={1} 
                 total={playlist.trackIds.length}
                 onChange={e=>setCurrentPage(e)}
+                onShowSizeChange={(_,e)=>{setPageCount(e)}}
                  />
               </div>
             </div>
