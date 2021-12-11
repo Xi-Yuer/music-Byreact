@@ -19,8 +19,10 @@ export default memo(function PhoneLogin(props) {
     login(username, password).then(res => {
       window.localStorage.setItem('cookie', res.cookie);
       window.localStorage.setItem(' token', res.token);
+      window.localStorage.setItem('userInfo',JSON.stringify(res.account))
       setIsModalVisible(false)
       message.success('登录成功！', 5);
+      window.localStorage.setItem('isLogin',true)
     });
   };
   return (
