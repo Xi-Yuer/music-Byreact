@@ -31,7 +31,7 @@ const { singer=[] } = props
                 </div>
               </span>
             );
-          }):<Empty description='暂无相似歌手' image={Empty.PRESENTED_IMAGE_SIMPLE} />}
+          }):<Empty description='需要登录!' image={Empty.PRESENTED_IMAGE_SIMPLE} />}
         </div>
       </SetterSongerWrapper>
     )

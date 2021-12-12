@@ -1,29 +1,41 @@
 import React, { memo, useState } from 'react';
 
-import { Form, Button, Input, Checkbox, message } from 'antd';
+import { Form, Button, Input, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
-import { login } from '../../login';
+import { login, getUserInfo } from '../../login';
 
 export default memo(function PhoneLogin(props) {
-  const { setIsModalVisible } = props
-  const [username=window.localStorage.getItem('username')||''] = useState();
-  const [password=window.localStorage.getItem('password')||''] = useState();
+  const { setIsModalVisible } = props;
+  const [username = window.localStorage.getItem('username') || ''] = useState();
+  const [password = window.localStorage.getItem('password') || ''] = useState();
 
   const onFinish = values => {
-    const { username, password, remember } = values;
-    if (remember) {
-      window.localStorage.setItem('username', username);
-      window.localStorage.setItem('password', password);
-    }
-    login(username, password).then(res => {
-      window.localStorage.setItem('cookie', res.cookie);
-      window.localStorage.setItem(' token', res.token);
-      window.localStorage.setItem('userInfo',JSON.stringify(res.account))
-      setIsModalVisible(false)
-      message.success('登录成功！', 5);
-      window.localStorage.setItem('isLogin',true)
-    });
+    const { username, password } = values;
+    login(username, password)
+      .then(res => {
+        window.localStorage.setItem('cookie', res.cookie);
+        window.localStorage.setItem('token', res.token);
+        window.localStorage.setItem('userInfo', JSON.stringify(res.account));
+        setIsModalVisible(false);
+        return res.account.id;
+      })
+      .then(id => {
+        getUserInfo(id).then(res => {
+          const userInfo = {
+            name: res.profile.nickname,
+            avatarUrl: res.profile.avatarUrl,
+            createTime: res.profile.createTime,
+          };
+          window.localStorage.setItem('useDetaile', JSON.stringify(userInfo));
+          window.localStorage.setItem('isLogin', true);
+          props.setLogin(true)
+          message.success('登录成功！', 5);
+        });
+      }).catch(()=>{
+        message.error('登录失败!')
+        window.localStorage.clear()
+      });
   };
   return (
     <div>
@@ -56,12 +68,6 @@ export default memo(function PhoneLogin(props) {
             initialvalues={password}
           />
         </Form.Item>
-        <Form.Item>
-          <Form.Item name='remember' valuePropName='checked' noStyle>
-            <Checkbox>记住密码</Checkbox>
-          </Form.Item>
-        </Form.Item>
-
         <Form.Item>
           <Button
             type='primary'

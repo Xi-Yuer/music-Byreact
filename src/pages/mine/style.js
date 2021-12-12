@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
 export const UnLogin = styled.div`
-  height: 270px;
-  overflow: hidden;
+  background-color: #fff;
+  height: 500px;
+  .mine {
+    margin-bottom: 200px;
+    height: 350px;
+    overflow: hidden;
+    img{
+      margin-top:80px;
+    }
+  }
 `;
-export const CardStyle = styled.div``
+export const CardStyle = styled.div``;
 export const RankingWrapper = styled.div`
   display: flex;
 `;

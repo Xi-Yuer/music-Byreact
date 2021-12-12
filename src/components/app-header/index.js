@@ -57,7 +57,6 @@ export default memo(function Header() {
             }}
           />
           <div className='center'>创作者中心</div>
-          <div className='login'>登录</div>
         </HeaderRight>
       </div>
       <div className='divider'></div>

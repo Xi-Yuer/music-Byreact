@@ -6,9 +6,7 @@ export function getSingerInfo(id){
         isLoading:true,
         url:'/artist/desc',
         params:{
-            id,
-            cookie:window.localStorage.getItem('cookie'),
-            token:window.localStorage.getItem('token')
+            id
           }
     })
 }
@@ -20,9 +18,7 @@ export function getSingerSongs(id) {
         isLoading:true,
         url:'/artist/top/song',
         params:{
-            id,
-            cookie:window.localStorage.getItem('cookie'),
-            token:window.localStorage.getItem('token')
+            id
           }
     })
 }

@@ -2,7 +2,6 @@
 import Discover from '../pages/discover';
 import React from 'react';
 import Mine from '../pages/mine';
-import Fridend from '../pages/fridend';
 import { Redirect } from 'react-router-dom';
 import Search from '@/pages/search';
 // 二级路由
@@ -98,10 +97,6 @@ const routes = [
         component: SongMenuList,
       },
     ],
-  },
-  {
-    path: '/friend',
-    component: Fridend,
   },
   {
     path: '/search',

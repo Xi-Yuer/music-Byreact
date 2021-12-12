@@ -10,3 +10,11 @@ export function login(phone,password) {
         }
     })
 }
+export function getUserInfo(uid) {
+    return request({
+        url:'/user/detail',
+        params:{
+            uid
+        }
+    })
+}

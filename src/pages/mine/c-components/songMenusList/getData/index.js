@@ -3,8 +3,7 @@ export function getAlbumInfo(id) {
   return request({
     url: '/playlist/detail',
     params: {
-      id,
-      token: window.localStorage.getItem('token'),
+      id
     },
   });
 }
@@ -21,9 +20,6 @@ export function getItemInfo(ids) {
 
 export function getUseraccount() {
   return request({
-    url: '/user/subcount',
-    params: {
-      token: window.localStorage.getItem('token'),
-    },
+    url: '/user/subcount'
   });
 }
