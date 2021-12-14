@@ -8,7 +8,7 @@ import store from "@/store/index";
 import { ConfigProvider } from 'antd'
 
 // 路由
-import routes from "@/router";
+import routes from "@/router"
 
 // 组件
 import Header from "@/components/app-header";
