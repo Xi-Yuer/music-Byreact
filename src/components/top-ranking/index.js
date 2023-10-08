@@ -12,8 +12,8 @@ import { TopRankingWrapper } from './style';
 
 export default memo(function TopRanking(props) {
   // props and state
-  const { info,target='' } = props;
-  const { tracks = [] } = info;
+  const { info = {}, target = '' } = props;
+  const { tracks = [] } = info ? info : {};
 
   // redux hooks
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export default memo(function TopRanking(props) {
     dispatch(SendMusicRquest(item.id));
     const newPlayList = [...tracks]
     newPlayList.shift()
-    dispatch(createAction(CHANGEPLAYLIST,newPlayList))
+    dispatch(createAction(CHANGEPLAYLIST, newPlayList))
   }
 
   return (
@@ -36,7 +36,7 @@ export default memo(function TopRanking(props) {
         <div className="info">
           <a href="/">{info.name}</a>
           <div>
-            <button className="btn play sprite_02"onClick={e => playMusic(tracks[0])}></button>
+            <button className="btn play sprite_02" onClick={e => playMusic(tracks[0])}></button>
             <button className="btn favor sprite_02"></button>
           </div>
         </div>
@@ -50,8 +50,8 @@ export default memo(function TopRanking(props) {
                 <div className="info">
                   <span className="name text-nowrap">{item.name}</span>
                   <div className="operate">
-                    <button className="btn sprite_02 play" 
-                            onClick={e => playMusic(item)}></button>
+                    <button className="btn sprite_02 play"
+                      onClick={e => playMusic(item)}></button>
                     <button className="btn sprite_icon2 addto"></button>
                     <button className="btn sprite_02 favor"></button>
                   </div>
@@ -62,7 +62,7 @@ export default memo(function TopRanking(props) {
         }
       </div>
       <div className="footer">
-        <Link to={{pathname:target,state:{info:info}}}>查看全部 &gt;</Link>
+        <Link to={{ pathname: target, state: { info: info } }}>查看全部 &gt;</Link>
       </div>
     </TopRankingWrapper>
   )

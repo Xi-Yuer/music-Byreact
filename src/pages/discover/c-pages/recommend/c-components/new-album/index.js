@@ -11,15 +11,15 @@ import { useHistory } from "react-router-dom";
 export default memo(function NewAlbum() {
 
   const carouselRef = useRef();
-  const newalbum = useSelector((state) => state.newalbum);
+  const newalbum = useSelector((state) => state.newalbum || []);
   const history = useHistory()
 
-const JumpToAlbumInfoPage = (item)=>{
-  history.push({
-    pathname:'/discover/newAlibumInfoPage',
-    state:item
-  })
-}
+  const JumpToAlbumInfoPage = (item) => {
+    history.push({
+      pathname: '/discover/newAlibumInfoPage',
+      state: item
+    })
+  }
 
   return (
     <AlbumWrapper>
@@ -35,7 +35,7 @@ const JumpToAlbumInfoPage = (item)=>{
               return (
                 <div key={item} className="page">
                   {newalbum.slice(item * 5, (item + 1) * 5).map((item) => {
-                    return <div key={item.id} onClick = {e=>{JumpToAlbumInfoPage(item)}}><AlbumCover info={item} /></div>
+                    return <div key={item.id} onClick={e => { JumpToAlbumInfoPage(item) }}><AlbumCover info={item} /></div>
                   })}
                 </div>
               );
